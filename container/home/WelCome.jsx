@@ -3,8 +3,10 @@ import React from 'react'
 import styles from './welcome.style'
 import {COLORS,SIZES} from "../../constants/index"
 import {Feather,Ionicons} from "@expo/vector-icons"
+import { useNavigation } from '@react-navigation/native'
 
 export default function WelCome() {
+  const navigation = useNavigation()
   return (
     <View>
       <View style={styles.container}>
@@ -23,7 +25,7 @@ export default function WelCome() {
               <TextInput 
                 style={styles.searchInput}
                 value=''
-                onPressIn={()=>{}}
+                onPressIn={()=> navigation.navigate("Search")}
                 placeholder='what are you looking for'
               />
           </View>
