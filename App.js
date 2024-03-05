@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import BottomTabNavigition from "./navigition/BottomTabNavigition";
+import ProductDeteles from "./screens/ProductDeteles";
 
 const Stack = createNativeStackNavigator()
 
@@ -35,6 +36,11 @@ export default function App() {
         <Stack.Screen 
           name="Bottom Navigation"
           component={BottomTabNavigition}
+          options={{headerShown:false}}
+        />
+        <Stack.Screen 
+          name="ProductDeteles"
+          component={ProductDeteles}
           options={{headerShown:false}}
         />
       </Stack.Navigator>
