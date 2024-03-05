@@ -5,6 +5,7 @@ import {Ionicons,Fontisto} from "@expo/vector-icons"
 import WelCome from "../container/home/WelCome";
 import Carousel from "../container/home/Carousel";
 import Headers from "../container/home/Headers";
+import ProductRow from "../container/product/ProductRow";
 
 const Home = () => {
   return (
@@ -28,6 +29,7 @@ const Home = () => {
         <WelCome />
         <Carousel />
         <Headers />
+        <ProductRow />
       </ScrollView>
     </SafeAreaView>
   );
