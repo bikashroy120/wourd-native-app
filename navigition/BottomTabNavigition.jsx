@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../constants/index";
 import Search from "../screens/Search";
 import Profile from "../screens/Profile";
+import ProductDeteles from "../screens/ProductDeteles";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +28,7 @@ const BottomTabNavigition = () => {
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={ProductDeteles}
         options={{
           tabBarIcon: ({ focused }) => {
             return (

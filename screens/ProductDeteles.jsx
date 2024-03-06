@@ -1,10 +1,22 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
+import React, { useState } from "react";
+import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
 import { COLORS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
 const ProductDeteles = () => {
+  const [count, setCount] = useState(1);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
   const navigition = useNavigation();
   return (
     <View style={styles.container}>
@@ -39,28 +51,64 @@ const ProductDeteles = () => {
           <View
             style={{
               flexDirection: "row",
-                alignItems:"center",
-              justifyContent:"space-between"
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            <Text style={{fontFamily:"bold",fontSize:20}}>Product Name</Text>
-            <View style={{
-                paddingHorizontal:15,
-                paddingVertical:8,
-                backgroundColor:COLORS.secondary,
-                borderRadius:20
-            }}>
-              <Text style={{fontSize:16,fontWeight:"bold"}}>$250</Text>
+            <Text style={{ fontFamily: "bold", fontSize: 20 }}>
+              Product Name
+            </Text>
+            <View
+              style={{
+                paddingHorizontal: 15,
+                paddingVertical: 8,
+                backgroundColor: COLORS.secondary,
+                borderRadius: 20,
+              }}
+            >
+              <Text style={{ fontSize: 16, fontWeight: "bold" }}>$250</Text>
             </View>
           </View>
-          <View>
-            <View>
-                {[1,2,3,4,5].map((index)=>(
-                    <Ionicons key={index} name="star" size={24} color={"gold"}/>
-                ))}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 10,
+              justifyContent: "space-between",
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 2,
+                alignItems: "center",
+              }}
+            >
+              {[1, 2, 3, 4, 5].map((index) => (
+                <Ionicons key={index} name="star" size={24} color={"gold"} />
+              ))}
+              <Text
+                style={{
+                  fontFamily: "regular",
+                  color: COLORS.gray,
+                  marginLeft: 5,
+                }}
+              >
+                (4.5)
+              </Text>
             </View>
-            <View>
-
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <TouchableOpacity onPress={() => increment()}>
+                <SimpleLineIcons name="plus" size={20} />
+              </TouchableOpacity>
+              <Text style={{ fontFamily: "medium", color: COLORS.gray }}>
+                {count}
+              </Text>
+              <TouchableOpacity onPress={() => decrement()}>
+                <SimpleLineIcons name="minus" size={20} />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
