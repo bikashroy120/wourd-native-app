@@ -7,10 +7,14 @@ import {
   Fontisto,
 } from "@expo/vector-icons";
 import { COLORS } from "../constants";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-const ProductDeteles = () => {
+const ProductDeteles = ({}) => {
+  const route = useRoute()
+  const {item} = route.params;
   const [count, setCount] = useState(1);
+
+  console.log(item)
 
   const increment = () => {
     setCount(count + 1);
@@ -34,7 +38,7 @@ const ProductDeteles = () => {
         </TouchableOpacity>
       </View>
       <Image
-        source={require("../../assets/images/fn1.jpg")}
+        source={{uri:item?.images[0]}}
         style={styles.image}
       />
       <View
@@ -61,19 +65,17 @@ const ProductDeteles = () => {
             }}
           >
             <Text style={{ fontFamily: "bold", fontSize: 20 }}>
-              Product Name
+              {item?.title}
             </Text>
-            <View
+          </View>
+          <View
               style={{
-                paddingHorizontal: 15,
                 paddingVertical: 8,
-                backgroundColor: COLORS.secondary,
                 borderRadius: 20,
               }}
             >
-              <Text style={{ fontSize: 16, fontWeight: "bold" }}>$250</Text>
+              <Text style={{ fontSize: 25, fontWeight: "bold" }}> ${item?.price}</Text>
             </View>
-          </View>
           <View
             style={{
               flexDirection: "row",

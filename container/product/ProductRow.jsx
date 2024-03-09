@@ -6,8 +6,6 @@ import useFetch from '../../hooks/useFetch'
 
 const ProductRow = () => {
   const {data,isLoading,error} = useFetch()
-    const products = [0,1,2,3]
-    console.log(data)
   return (
     <View style={{marginHorizontal:10,marginTop:10}}>
         {

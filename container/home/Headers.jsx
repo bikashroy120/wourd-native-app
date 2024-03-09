@@ -2,13 +2,15 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import {Ionicons} from "@expo/vector-icons"
 import {COLORS,SIZES} from "../../constants/index"
+import { useNavigation } from '@react-navigation/native'
 
 export default function Headers() {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
         <View style={styles.headerContainer}>
             <Text style={styles.headerText}>New Rivals</Text>
-            <TouchableOpacity style={styles.headerBottom}>
+            <TouchableOpacity onPress={()=>navigation.navigate("NewRivals")} style={styles.headerBottom}>
                 <Ionicons name='ios-grid' size={24} color={COLORS.primary} />
             </TouchableOpacity>
         </View>

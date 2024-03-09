@@ -3,12 +3,13 @@ import { StatusBar } from "expo-status-bar";
 import { useCallback } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack"
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigition from "./navigition/BottomTabNavigition";
 import ProductDeteles from "./screens/ProductDeteles";
+import NewRivals from "./screens/NewRivals";
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -33,15 +34,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen 
+        <Stack.Screen
           name="Bottom Navigation"
           component={BottomTabNavigition}
-          options={{headerShown:false}}
+          options={{ headerShown: false }}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name="ProductDeteles"
           component={ProductDeteles}
-          options={{headerShown:false}}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="NewRivals"
+          component={NewRivals}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
