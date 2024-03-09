@@ -4,27 +4,27 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../constants";
 import { useNavigation } from "@react-navigation/native";
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity onPress={()=>navigation.navigate("ProductDeteles")}>
+    <TouchableOpacity onPress={()=>navigation.navigate("ProductDeteles",{item})}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image
-            source={require("../../assets/images/fn1.jpg")}
+            source={{uri:item?.images[0]}}
             style={styles.image}
           />
         </View>
         <View style={styles.productBody}>
           <Text style={styles.title} numberOfLines={1}>
-            Products Name
+              {item?.title}
           </Text>
           <Text style={styles.supply} numberOfLines={1}>
-            Product
+              {item?.category}
           </Text>
           <View style={styles.text}>
             <Text style={styles.price} numberOfLines={1}>
-              $250
+              ${item?.price}
             </Text>
             <TouchableOpacity>
               <Ionicons name="add-circle" size={24} />
@@ -47,13 +47,14 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: "100%",
-    height: 140,
+    height: 150,
     backgroundColor: COLORS.gray,
   },
   image: {
     aspectRatio: 1,
-    resizeMode: "cover",
+    resizeMode:"fill",
     height: "100%",
+    width:"100%"
   },
   productBody: {
     paddingHorizontal: 10,
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     paddingBottom:10
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: "bold",
     color: COLORS.primary,
   },

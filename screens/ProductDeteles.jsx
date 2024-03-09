@@ -1,6 +1,11 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
-import { Ionicons, SimpleLineIcons } from "@expo/vector-icons";
+import {
+  Ionicons,
+  SimpleLineIcons,
+  MaterialCommunityIcons,
+  Fontisto,
+} from "@expo/vector-icons";
 import { COLORS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
@@ -110,6 +115,84 @@ const ProductDeteles = () => {
                 <SimpleLineIcons name="minus" size={20} />
               </TouchableOpacity>
             </View>
+          </View>
+
+          <View style={{ marginTop: 15 }}>
+            <Text style={{ fontFamily: "bold", fontSize: 18, marginBottom: 5 }}>
+              Description
+            </Text>
+            <Text
+              style={{
+                fontFamily: "regular",
+                fontSize: 16,
+                color: COLORS.gray,
+              }}
+            >
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here'
+            </Text>
+          </View>
+
+          <View style={{ marginTop: 15 }}>
+            <View
+              style={{
+                paddingHorizontal: 10,
+                paddingVertical: 7,
+                backgroundColor: COLORS.secondary,
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                borderRadius: 10,
+              }}
+            >
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <Ionicons name="location-outline" size={20} />
+                <Text style={{ fontWeight: "bold" }}>Dallas</Text>
+              </View>
+              <View style={{ flexDirection: "row", gap: 5 }}>
+                <MaterialCommunityIcons
+                  name="truck-delivery-outline"
+                  size={20}
+                />
+                <Text style={{ fontWeight: "bold" }}>Free Delivery</Text>
+              </View>
+            </View>
+          </View>
+
+          <View style={{
+            flexDirection:"row",
+            alignItems:"center",
+            justifyContent:"space-between",
+            marginTop:15
+          }}> 
+            <TouchableOpacity
+              style={{
+                backgroundColor: COLORS.black,
+                paddingHorizontal: 10,
+                paddingVertical: 8,
+                borderRadius:10,
+                flexDirection:"row",
+                alignItems:"center",
+                justifyContent:"center",
+                width:"65%"
+              }}
+            >
+              <Text style={{color:COLORS.lightWhite,fontWeight:"bold"}}>Buy Now</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{
+              width:"10%",
+              paddingVertical:7,
+              borderRadius:10,
+              backgroundColor:COLORS.black,
+              flexDirection:"row",
+              alignItems:"center",
+              justifyContent:"center",
+            }}>
+              <Fontisto name="shopping-bag" color={COLORS.white} size={20} />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
