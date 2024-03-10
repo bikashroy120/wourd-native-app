@@ -17,7 +17,7 @@ export default function WelCome() {
               Luxurious Furniture
           </Text>
       </View>
-      <View style={styles.searchWarper}>
+      <TouchableOpacity style={styles.searchWarper} onPress={()=>navigation.navigate("Search")} >
           <TouchableOpacity style={{height:"100%",marginTop:10}}>
             <Feather name='search' size={24} style={styles.searchIcon} />
           </TouchableOpacity>
@@ -25,14 +25,13 @@ export default function WelCome() {
               <TextInput 
                 style={styles.searchInput}
                 value=''
-                onPressIn={()=> navigation.navigate("Search")}
                 placeholder='what are you looking for'
               />
           </View>
           <TouchableOpacity style={styles.searchButton}>
               <Ionicons name='camera-outline' size={SIZES.xLarge} color={COLORS.white}/>
           </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }
